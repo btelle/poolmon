@@ -1,8 +1,8 @@
-CREATE TYPE "MEASUREMENT_TYPE" as ENUM ('pool', 'ambient');
+CREATE TYPE "measurement_type" as ENUM ('pool', 'ambient');
 
 DROP TABLE IF EXISTS "measurements";
 CREATE TABLE "measurements" (
-	"id" INDEX PRIMARY KEY,
+	"id" SERIAL PRIMARY KEY,
 	"type" MEASUREMENT_TYPE,
 	"measured_at" TIMESTAMP,
 	"degrees_farenheit" NUMERIC(18, 2),

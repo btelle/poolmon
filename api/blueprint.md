@@ -15,18 +15,21 @@ Simple REST API to get the current or histrical temperature of a pool.
 
 + Response 200 (application/json)
 
-        [
-            {
-                "measurement_type": "pool",
-                "temperature": 
+        {
+            "measurements":
+            [
+                {
+                    "measurement_type": "pool",
+                    "temperature": 
                     {
                         "degrees_farenheit": 82.332,
                         "degrees_celsius": 27.962
                     },
-                "timestamp": "2016-06-25T09:27:42-700",
-                "type": "single"
-            }
-        ]
+                    "timestamp": "2016-06-25T09:27:42-700",
+                    "aggregate_type": "single"
+                }
+            ]
+        }
 
 ## ambient [/ambient?date,type]
 ### Get Ambient Temperature [GET]
@@ -37,15 +40,18 @@ Simple REST API to get the current or histrical temperature of a pool.
 
 + Response 200 (application/json)
 
-        [
-            {
-                "measurement_type": "ambient",
-                "temperature": 
-                    {
-                        "degrees_farenheit": 97.429,
-                        "degrees_celsius": 36.349
-                    },
-                "timestamp": "2016-06-25T09:27:42-700",
-                "type": "avg"
-            }
-        ]
+        {
+            "measurements":
+            [
+                {
+                    "measurement_type": "ambient",
+                    "temperature": 
+                        {
+                            "degrees_farenheit": 97.429,
+                            "degrees_celsius": 36.349
+                        },
+                    "timestamp": "2016-06-25T09:27:42-700",
+                    "aggregate_type": "avg"
+                }
+            ]
+        }
