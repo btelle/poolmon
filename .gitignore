@@ -1,4 +1,4 @@
 # compiled files
-.py[cod]
+*.py[cod]
 build/
 credentials.py
