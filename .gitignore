@@ -1,4 +1,5 @@
 # compiled files
 *.py[cod]
 build/
+__pycache__/
 credentials.py

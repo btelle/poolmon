@@ -1,5 +1,6 @@
 from credentials import DBCONN, AMBIENTSENSOR, POOLSENSOR
-import sys, os, time
+from tzlocal import get_localzone
+import sys, os, time, psycopg2, random, datetime
 
 os.system('modprobe w1-gpio')
 os.system('modprobe w1-therm')
@@ -26,18 +27,30 @@ def get_temp(sensor):
 		return temp_c, temp_f
 	return None
 
-def insert_measurement(type, temp_c, temp_f):
-	pass
+def insert_measurement(cur, measurement_type, temp_c, temp_f):
+	local_tz = get_localzone()
+	
+	data = {}
+	data['type'] = measurement_type
+	data['degrees_farenheit'] = temp_f
+	data['degrees_celsius'] = temp_c
+	data['measured_at'] = datetime.datetime.now(local_tz).strftime('%Y-%m-%d %H:%M:%S')
+	
+	query = """
+		INSERT INTO measurements (type, measured_at, degrees_celsius, degrees_farenheit) 
+			VALUES ('{type}', '{measured_at}', {degrees_celsius}, {degrees_farenheit})""".format(**data)
+	
+	return cur.execute(query)
 
 while True:
 	try:
-		insert_measurement('ambient', *get_temp(AMBIENTSENSOR))
-		insert_measurement('pool', *get_temp(POOLSENSOR))
+		with psycopg2.connect(DBCONN) as conn:
+			with conn.cursor() as cur:
+				insert_measurement(cur, 'ambient', *get_temp(AMBIENTSENSOR))
+				insert_measurement(cur, 'pool', *get_temp(POOLSENSOR))
 	except KeyboardInterrupt:
 		sys.exit(0)
 	except:
 		print "Unexpected exception occurred"
 	
 	time.sleep(5*60)
-    
-    
