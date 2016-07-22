@@ -6,11 +6,12 @@ os.system('modprobe w1-gpio')
 os.system('modprobe w1-therm')
 
 base_dir = '/sys/bus/w1/devices/'
+filename = '/w1_slave'
 
 def get_temp(sensor):
 	ready = False
 	while not ready:
-		f = open(base_dir+sensor, 'r')
+		f = open(base_dir+sensor+filename, 'r')
 		lines = f.readlines()
 		f.close()
 		

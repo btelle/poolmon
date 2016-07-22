@@ -95,4 +95,4 @@ def format_row(row, aggregate_type='all'):
     return ret
 
 if __name__ == '__main__':
-    app.run(port=18015)
+    app.run(host='0.0.0.0', port=18015)
