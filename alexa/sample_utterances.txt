@@ -1,0 +1,18 @@
+CurrentPoolTemp How {Temperature} is the pool?
+CurrentPoolTemp What temperature is the pool?
+CurrentPoolTemp What is the pool temperature?
+CurrentPoolTemp How is the pool water?
+
+CurrentAmbientTemp How {Temperature} is it outside?
+CurrentAmbientTemp How {Temperature} is it?
+CurrentAmbientTemp What temperature is it?
+CurrentAmbientTemp What is the temperature?
+
+PastPoolTemp How {Temperature} was the pool {Date}?
+PastPoolTemp What temperature was the pool {Date}?
+
+PastAmbientTemp How {Temperature} was it outside {date}?
+PastAmbientTemp What temperature was it outside {date}?
+PastAmbientTemp How {Temperature} was it {date}?
+PastAmbientTemp What temperature was it {date}?
+PastAmbientTemp What was the temperature {date}?

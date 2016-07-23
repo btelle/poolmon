@@ -1,0 +1,57 @@
+{
+  "intents":[
+    {
+      "intent": "AMAZON.StopIntent"
+    },
+    {
+      "intent": "AMAZON.CancelIntent"
+    },
+    {
+      "intent": "AMAZON.HelpIntent"
+    },
+    {
+      "intent": "CurrentPoolTemp",
+      "slots": [
+        {
+          "name": "Temperature",
+          "type": "TEMPERATURE_TYPE"
+        }
+      ]
+    },
+    {
+      "intent": "CurrentAmbientTemp",
+      "slots": [
+        {
+          "name": "Temperature",
+          "type": "TEMPERATURE_TYPE"
+        }
+      ]
+    },
+    {
+      "intent": "PastPoolTemp",
+      "slots": [
+        {
+          "name": "Temperature",
+          "type": "TEMPERATURE_TYPE"
+        },
+        {
+          "name": "Date",
+          "type": "AMAZON.DATE"
+        }
+      ]
+    },
+    {
+      "intent": "PastAmbientTemp",
+      "slots": [
+        {
+          "name": "Temperature",
+          "type": "TEMPERATURE_TYPE"
+        },
+        {
+          "name": "Date",
+          "type": "AMAZON.DATE"
+        }
+      ]
+    }
+  ]
+}
