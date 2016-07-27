@@ -19,10 +19,16 @@ sample_json = """
     "requestId": "EdwRequestId.b22db637-b8f9-43c0-ae0c-1a9b35a02610",
     "timestamp": 1447911387582,
     "intent": {
-      "name": "CurrentPoolTemp",
-      "slots": {}
+      "name": "PastPoolTemp",
+      "slots": {
+        "Date":
+          {
+            "name": "Date", 
+            "value": "2016-07-21"
+          }
+      }
     }
-    }
+  }
 }
 """
 
