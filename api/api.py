@@ -75,11 +75,16 @@ def __do_temperature_query(measurement_type, min_date=None, max_date=None, aggre
             
             rows = []
             for row in cur.fetchall():
-                rows.append(format_row(row, aggregate_type))
+                formatted = format_row(row, aggregate_type)
+                if formatted:
+                    rows.append(formatted)
             
             return rows
 
 def format_row(row, aggregate_type='all'):
+    if 'measured_at' not in row or row['measured_at'] == None:
+        return None
+    
     if aggregate_type == 'all':
         aggregate_type = 'single'
     
